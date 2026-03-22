@@ -13,7 +13,7 @@ var (
 	// Flag that determines the presence of special characters when creating a password.
 	// Example: -s 1 (enable)
 	// By default: 0 (disable)
-	EnableSpecialSymbols = flag.Int("s", util.DefaultEnableSpecialSymbolsValue, "Whether to use special characters when creating a password")
+	EnableSpecialSymbols = flag.Bool("s", util.DefaultEnableSpecialSymbolsValue, "Whether to use special characters when creating a password")
 )
 
 func ParseArgs() {

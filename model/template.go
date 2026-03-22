@@ -12,7 +12,7 @@ type Template struct {
 	Special bool
 }
 
-func NewTemplate(passwordLength *int, enableSpecialSymbols *int) *Template {
+func NewTemplate(passwordLength *int, enableSpecialSymbols *bool) *Template {
 	validator := util.NewPasswordValidator(util.MinPasswordLength, util.MaxPasswordLength)
 	err := validator.Validate(passwordLength)
 	if err != nil {
@@ -22,6 +22,6 @@ func NewTemplate(passwordLength *int, enableSpecialSymbols *int) *Template {
 		Len:     util.ToValue(passwordLength),
 		Letters: true,
 		Digits:  true,
-		Special: util.IntToBool(enableSpecialSymbols),
+		Special: util.ToValue(enableSpecialSymbols),
 	}
 }
